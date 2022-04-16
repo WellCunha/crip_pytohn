@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+
+{% endblock %}
+
+{% block 'body' %}
+
+<div class="container">
+    <h1>Pessoas</h1>
+
+    <ul>
+       <li>
+            <a href="{% url 'pessoa.novo' %}">Novo</a>
+        </li>
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+    </ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NOME</th>
+      <th scope="col">DATA</th>
+      <th scope="col">ATIVA</th>
+      <th scope="col">OPÇÕES</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for pessoa in object_list %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{pessoa.nome_completo}}</td>
+      <td>{{pessoa.data_nascimento|date:"d/m/Y"}}</td>
+      <td>
+          {% if pessoa.ativa %}
+          SIM
+          {% else %}
+          NÂO
+          {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</div>
+
+{% endblock %}

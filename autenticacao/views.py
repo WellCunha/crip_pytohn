@@ -36,7 +36,7 @@ def logar(request):
 
         auth.login(request, usuario)
 
-        return redirect('/')
+        return redirect('home')
 
 def sair(request):
     auth.logout(request)

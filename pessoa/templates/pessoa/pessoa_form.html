@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+
+{% endblock %}
+
+{% block 'body' %}
+
+<div class="container">
+    <h1>Pessoas</h1>
+
+    <ul>
+       <li>
+            <a href="{% url 'pessoa.novo' %}">Novo</a>
+        </li>
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+    </ul>
+
+<form  method="POST">
+    {% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Salvar">
+</form>
+
+{% endblock %}
